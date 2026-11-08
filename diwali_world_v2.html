@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#160b2b">
+<title>Our Little Diwali World ✨</title>
+<style>
+:root{--gold:#ffd875;--pink:#ff8db4;--cream:#fff1d1;--ink:#170b2c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#100820;color:var(--cream);font-family:Georgia,serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#sky{position:fixed;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 28%,#56265b 0,#241039 45%,#0d0718 100%)}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff4c8;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.5)}}
+.moon{position:absolute;right:9%;top:8%;width:62px;height:62px;border-radius:50%;background:#fff0bd;box-shadow:0 0 35px #ffe9a0}
+.moon:after{content:"";position:absolute;left:17px;top:-6px;width:60px;height:60px;border-radius:50%;background:#25123a}
+#fireworks{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+header{position:relative;z-index:2;text-align:center;padding:34px 15px 8px}
+.kicker{font:11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2.3rem,8vw,4.8rem);line-height:1;margin:13px 0 8px;color:#ffe6a5;text-shadow:0 0 22px #ffb94d80}
+h1 span{color:#ff9fbd;font-style:italic}
+header p{font-size:clamp(.95rem,3vw,1.15rem);color:#f7dce5;margin:0}
+.stage{position:relative;z-index:1;width:min(100%,900px);height:clamp(440px,76vh,690px);margin:5px auto 0;overflow:hidden;perspective:850px;isolation:isolate}
+.skyline{position:absolute;inset:0 0 40%}
+.cloud{position:absolute;width:100px;height:28px;background:#4b2857;border-radius:40px;opacity:.25;filter:blur(5px);top:18%;left:8%}
+.cloud.c2{left:auto;right:7%;top:32%;transform:scale(1.3)}
+.stars-glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,#ffbb6b22,transparent 40%)}
+.street{position:absolute;left:-28%;right:-28%;bottom:-3%;height:64%;transform:rotateX(58deg);transform-origin:bottom center;background:repeating-linear-gradient(90deg,transparent 0 74px,#d48c5b55 75px 77px),repeating-linear-gradient(0deg,#512544 0 49px,#d48c5b66 50px 52px);border-top:5px solid #f3bb73;box-shadow:0 -12px 50px #ffad5630}
+.street:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#160c27aa,transparent 30%,transparent 70%,#160c27aa)}
+.house{position:absolute;bottom:27%;width:30%;height:43%;border:3px solid #f4bd73;box-shadow:0 0 30px #ffb75a35;cursor:pointer;transition:filter .25s,transform .25s}
+.house:active{filter:brightness(1.35);transform:translateY(-5px)}
+.house.left{left:1%;background:linear-gradient(145deg,#a7436c,#62234f);clip-path:polygon(0 19%,50% 0,100% 19%,100% 100%,0 100%)}
+.house.right{right:1%;background:linear-gradient(145deg,#276c83,#17405e);clip-path:polygon(0 19%,50% 0,100% 19%,100% 100%,0 100%)}
+.house.center{left:35%;width:30%;height:51%;bottom:29%;background:linear-gradient(145deg,#a45b39,#71364a);clip-path:polygon(0 17%,50% 0,100% 17%,100% 100%,0 100%)}
+.house .facade{position:absolute;inset:25% 8% 0;background:repeating-linear-gradient(90deg,#ffffff12 0 2px,transparent 2px 28px)}
+.house .window{position:absolute;bottom:28%;width:23%;height:34%;border:4px solid #592648;border-radius:50% 50% 5px 5px;background:#ffdc83;box-shadow:0 0 22px #ffd16a}
+.house.left .window{left:16%}.house.left .window.w2{left:60%}
+.house.right .window{left:16%}.house.right .window.w2{left:60%}
+.house.center .window{left:12%;width:24%;height:30%}.house.center .window.w2{left:64%}
+.house .door{position:absolute;bottom:0;left:39%;width:24%;height:40%;border:4px solid #f6c77a;border-bottom:0;border-radius:45% 45% 0 0;background:linear-gradient(90deg,#3a183a,#6a2d4a);transform-origin:left;transition:transform .8s;box-shadow:inset 0 0 12px #13091b}
+.house .door.open{transform:perspective(300px) rotateY(-78deg)}
+.house .toran{position:absolute;top:20%;left:15%;right:15%;height:12px;background:radial-gradient(circle,#ffdb70 0 3px,#d64e64 4px 6px,transparent 7px);background-size:17px 12px}
+.balcony{position:absolute;bottom:20%;left:5%;right:5%;height:9px;background:#ffd28a;box-shadow:0 5px 0 #73334c}
+.string-lights{position:absolute;top:20%;left:7%;right:7%;height:28px;border-top:2px solid #f7ce82;background:radial-gradient(circle,#fff1a6 0 4px,transparent 5px);background-size:26px 22px;background-repeat:repeat-x;filter:drop-shadow(0 0 6px #ffd35f);animation:glow 1.2s infinite alternate}
+@keyframes glow{to{filter:brightness(1.5) drop-shadow(0 0 12px #ffd35f)}}
+.lantern{position:absolute;top:13%;width:22px;height:34px;border-radius:45% 45% 40% 40%;background:linear-gradient(90deg,#e34d78,#ffd66d,#d94d72);box-shadow:0 0 18px #ffb64f;animation:sway 3s ease-in-out infinite alternate}
+.lantern:before{content:"";position:absolute;left:10px;top:-22px;height:23px;border-left:1px solid #ffcf83}
+.lantern.l1{left:26%}.lantern.l2{right:24%;top:20%;animation-delay:.6s}
+@keyframes sway{to{transform:rotate(8deg) translateY(7px)}}
+.rangoli{position:absolute;bottom:10%;width:85px;height:85px;border-radius:50%;background:repeating-radial-gradient(circle,#ffcf6d 0 3px,#e34f80 4px 7px,#482052 8px 11px);border:2px solid #ffd98d;box-shadow:0 0 20px #ffbf6533}
+.rangoli.r1{left:10%}.rangoli.r2{right:10%;transform:scale(.75)}
+.couple{position:absolute;z-index:8;bottom:16%;left:50%;width:130px;height:160px;transform:translateX(-50%);transition:left 1s ease,bottom .5s;filter:drop-shadow(0 10px 8px #09041188)}
+.person{position:absolute;bottom:0;width:60px;height:118px;transition:transform .3s}
+.person.girl{right:0}
+.person .head{position:absolute;top:0;left:12px;width:42px;height:45px;border-radius:48% 48% 45% 45%;background:#d98d68;border:2px solid #592d3c;z-index:2}
+.person .hair{position:absolute;top:-4px;left:8px;width:49px;height:37px;border-radius:50% 50% 35% 35%;background:#211326;z-index:3}
+.person.girl .hair{height:55px;border-radius:50% 50% 40% 40%}
+.person .body{position:absolute;top:39px;left:8px;width:50px;height:61px;border-radius:17px 17px 7px 7px;background:linear-gradient(90deg,#f4c6a0,#db8b70);border:2px solid #692d47}
+.person.boy .body{background:linear-gradient(90deg,#fff0d2,#e7bfa0)}
+.person.girl .body{background:linear-gradient(90deg,#ffb64f,#df4b78);height:68px;top:40px;border-radius:16px 16px 8px 8px}
+.person .legs{position:absolute;bottom:0;left:15px;width:32px;height:23px;border-left:8px solid #43233b;border-right:8px solid #43233b}
+.person .arm{position:absolute;top:49px;right:-3px;width:12px;height:42px;border-radius:10px;background:#d98d68;transform:rotate(-25deg);transform-origin:top}
+.couple.walking .boy{animation:walk .32s infinite alternate}.couple.walking .girl{animation:walk .32s .15s infinite alternate}
+@keyframes walk{to{transform:translateY(-5px) rotate(3deg)}}
+.couple.hug .boy{transform:translateX(12px) rotate(5deg)}.couple.hug .girl{transform:translateX(-12px) rotate(-5deg)}
+.diya{position:absolute;z-index:9;bottom:8%;width:38px;height:19px;border-radius:0 0 50% 50%;background:linear-gradient(#ffdc8a,#d85b38);box-shadow:0 0 16px #ff9d3c}
+.diya:before{content:"";position:absolute;width:12px;height:20px;left:13px;top:-15px;border-radius:80% 10% 80% 10%;transform:rotate(45deg);background:linear-gradient(#fff8b4,#ff8b2e);box-shadow:0 0 16px #ffb33b;animation:flame .15s infinite alternate}
+@keyframes flame{to{transform:rotate(35deg) scale(.85)}}
+.d1{left:30%}.d2{right:30%}.d3{left:7%;bottom:5%}.d4{right:7%;bottom:5%}
+.scene-caption{position:absolute;z-index:12;left:50%;bottom:2%;transform:translateX(-50%);width:max-content;max-width:90%;padding:8px 14px;border:1px solid #ffd77866;border-radius:99px;background:#170b2ccc;color:#ffe8b2;font:12px Arial,sans-serif;letter-spacing:.4px;text-align:center}
+.controls{position:relative;z-index:30;max-width:760px;margin:-3px auto 0;padding:0 16px 28px;text-align:center}
+.panel{background:#ffffff0d;border:1px solid #ffd77855;border-radius:22px;padding:20px 16px;backdrop-filter:blur(10px);box-shadow:0 15px 40px #0004}
+.panel h2{margin:0 0 8px;color:var(--gold);font-size:clamp(1.45rem,5vw,2rem)}
+.panel p{line-height:1.65;color:#f6e4dc;margin:8px auto;max-width:570px}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:15px}
+.btn{border:1px solid #ffe09a;border-radius:999px;padding:12px 17px;background:linear-gradient(135deg,#ffdf8b,#ff9b83);color:#35152f;font-weight:bold;box-shadow:0 5px 18px #ffad5740;transition:.2s}
+.btn:active{transform:scale(.96)}
+.btn.secondary{background:#ffffff12;color:#ffe8c1}
+.btn:disabled{opacity:.4}
+.gift{margin:18px auto 8px;width:110px;height:100px;position:relative;cursor:pointer;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px) rotate(2deg)}}
+.giftbox{position:absolute;bottom:0;left:8px;width:94px;height:65px;border-radius:7px;background:linear-gradient(120deg,#e34878,#96244f);box-shadow:0 10px 18px #0005}
+.giftbox:before{content:"";position:absolute;left:38px;width:18px;height:100%;background:#ffdb78}
+.giftbox:after{content:"";position:absolute;top:24px;width:100%;height:13px;background:#ffdb78}
+.giftlid{position:absolute;z-index:2;top:24px;left:2px;width:106px;height:20px;border-radius:5px;background:#ff8daf;transition:.6s}
+.giftbow{position:absolute;z-index:3;top:0;left:40px;width:32px;height:27px;border:7px solid #ffdb78;border-radius:50% 50% 5px 50%;transform:rotate(25deg);transition:.6s}
+.gift.open .giftlid{transform:translateY(-45px) rotate(-13deg)}.gift.open .giftbow{transform:translateY(-45px) rotate(25deg)}
+#letter{display:none;margin-top:15px;padding:20px;border-radius:16px;background:#fff0d9;color:#54233e;text-align:left;line-height:1.7;animation:reveal .7s}
+#letter.show{display:block}
+@keyframes reveal{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.signature{color:#b52d69;font-style:italic;font-size:1.2rem}
+footer{position:relative;z-index:2;text-align:center;padding:0 12px 30px;color:#cbaec8;font:11px Arial,sans-serif;letter-spacing:2px}
+#soundStatus{font:11px Arial,sans-serif;color:#d9bfd0;margin-top:12px}
+.spark{position:absolute;width:5px;height:5px;border-radius:50%;pointer-events:none}
+@media(max-width:520px){.stage{height:480px}.house{bottom:28%;height:37%}.house.center{height:45%;bottom:30%}.street{height:58%}.couple{bottom:15%;transform:translateX(-50%) scale(.82)}.rangoli{width:65px;height:65px}.moon{width:48px;height:48px}.moon:after{width:48px;height:48px;left:13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="sky"><div class="moon"></div></div><div id="fireworks"></div>
+<header>
+  <div class="kicker">A tiny world, made just for you</div>
+  <h1>Happy Diwali,<br><span id="herTitle">My Love</span> ✨</h1>
+  <p>Come, let's take a little walk through our Diwali night.</p>
+</header>
+
+<section class="stage" aria-label="Interactive Diwali street">
+  <div class="skyline"><div class="stars-glow"></div><div class="cloud"></div><div class="cloud c2"></div></div>
+  <div class="house left" data-house="left" aria-label="Decorated pink house">
+    <div class="string-lights"></div><div class="toran"></div><div class="facade"></div><div class="window"></div><div class="window w2"></div><div class="balcony"></div><div class="door"></div>
+  </div>
+  <div class="house center" data-house="center" aria-label="Our little home">
+    <div class="string-lights"></div><div class="toran"></div><div class="facade"></div><div class="window"></div><div class="window w2"></div><div class="door" id="mainDoor"></div>
+  </div>
+  <div class="house right" data-house="right" aria-label="Decorated blue house">
+    <div class="string-lights"></div><div class="toran"></div><div class="facade"></div><div class="window"></div><div class="window w2"></div><div class="balcony"></div><div class="door"></div>
+  </div>
+  <div class="lantern l1"></div><div class="lantern l2"></div>
+  <div class="street"></div>
+  <div class="rangoli r1"></div><div class="rangoli r2"></div>
+  <div class="diya d1"></div><div class="diya d2"></div><div class="diya d3"></div><div class="diya d4"></div>
+  <div class="couple" id="couple" aria-label="Animated couple">
+    <div class="person boy"><div class="hair"></div><div class="head"></div><div class="body"></div><div class="arm"></div><div class="legs"></div></div>
+    <div class="person girl"><div class="hair"></div><div class="head"></div><div class="body"></div><div class="arm"></div><div class="legs"></div></div>
+  </div>
+  <div class="scene-caption" id="caption">Tap “Start our walk” to enter our little world ✨</div>
+</section>
+
+<main class="controls">
+  <section class="panel">
+    <h2 id="panelTitle">Our Diwali evening 🪔</h2>
+    <p id="panelText">A street full of lights, a sky full of stars, and my favourite person beside me. Let's explore.</p>
+    <div class="buttons">
+      <button class="btn" id="startBtn">Start our walk →</button>
+      <button class="btn secondary" id="fireBtn">Light the sky 🎆</button>
+      <button class="btn secondary" id="doorBtn">Open our door 🚪</button>
+      <button class="btn secondary" id="hugBtn">A little hug ❤️</button>
+    </div>
+    <div class="buttons">
+      <button class="btn secondary" id="giftBtn">Open your surprise 🎁</button>
+      <button class="btn secondary" id="soundBtn">♫ Turn sound on</button>
+    </div>
+    <div id="soundStatus">Sound is off until you tap the sound button.</div>
+    <div class="gift" id="gift" role="button" tabindex="0" aria-label="Open your gift">
+      <div class="giftbow"></div><div class="giftlid"></div><div class="giftbox"></div>
+    </div>
+    <div id="letter">
+      <h2>For you, my favourite person. ❤️</h2>
+      <p>Of all the lights shining tonight, you are still my favourite. I hope life gives you every happiness you quietly wish for, every reason to smile, and a thousand beautiful moments to remember.</p>
+      <p>And if I get to be beside you for some of them, I'll count myself lucky. Happy Diwali, my love.</p>
+      <p class="signature">Always yours,<br><span id="signName">Your person</span></p>
+    </div>
+  </section>
+</main>
+<footer>MADE WITH LOVE · YOUR LITTLE DIWALI UNIVERSE ✨</footer>
+
+<script>
+// PERSONALISE THESE TWO LINES:
+const girlfriendName = "My Love";
+const yourName = "Your person";
+
+document.getElementById("herTitle").textContent = girlfriendName;
+document.getElementById("signName").textContent = yourName;
+
+// Build the star field.
+const sky=document.getElementById("sky");
+for(let i=0;i<115;i++){const s=document.createElement("i");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*68+"%";s.style.opacity=.2+Math.random()*.8;s.style.animationDelay=Math.random()*3+"s";sky.appendChild(s)}
+
+// Sound effects are synthesised in the browser; no audio downloads needed.
+let audioCtx=null,soundOn=false,ambienceTimer=null;
+function audioReady(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==="suspended")audioCtx.resume();return audioCtx}
+function tone(freq=440,duration=.12,type="sine",volume=.04,slide=0){
+ if(!soundOn)return;const c=audioReady(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(freq,c.currentTime);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(40,freq+slide),c.currentTime+duration);g.gain.setValueAtTime(volume,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+duration);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+duration)
+}
+function chime(){tone(660,.18,"sine",.035,240);setTimeout(()=>tone(880,.22,"sine",.025,180),90)}
+function pop(){tone(170,.18,"triangle",.07,-90);setTimeout(()=>tone(90,.24,"sine",.025,-40),60)}
+function sparkle(){[660,880,1100].forEach((f,i)=>setTimeout(()=>tone(f,.22,"sine",.025,100),i*90))}
+function fireSound(){tone(110,.32,"sawtooth",.045,500);setTimeout(()=>{tone(520,.28,"triangle",.04,850);tone(740,.38,"sine",.025,300)},230)}
+function toggleSound(){
+ soundOn=!soundOn;const b=document.getElementById("soundBtn");
+ b.textContent=soundOn?"♫ Sound on — tap to mute":"♫ Turn sound on";
+ document.getElementById("soundStatus").textContent=soundOn?"Sound effects are on. Tap the buttons and enjoy the little sounds.":"Sound is off.";
+ if(soundOn){audioReady();chime()}else if(ambienceTimer){clearInterval(ambienceTimer);ambienceTimer=null}
+}
+document.getElementById("soundBtn").addEventListener("click",toggleSound);
+
+// Firework particle bursts.
+function burst(x=Math.random()*innerWidth,y=70+Math.random()*innerHeight*.42){
+ const root=document.getElementById("fireworks"),colors=["#ffe28a","#ff82ac","#a6e9ff","#fff3d0","#d3a0ff","#ffad68"];
+ for(let i=0;i<48;i++){const p=document.createElement("i");p.className="spark";p.style.left=x+"px";p.style.top=y+"px";p.style.background=colors[i%colors.length];p.style.boxShadow="0 0 9px "+colors[i%colors.length];root.appendChild(p);
+  const a=Math.PI*2*i/48,dist=45+Math.random()*105,dx=Math.cos(a)*dist,dy=Math.sin(a)*dist;
+  p.animate([{transform:"translate(0,0) scale(1)",opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.1)`,opacity:0}],{duration:850+Math.random()*650,easing:"cubic-bezier(.1,.7,.3,1)"});
+  setTimeout(()=>p.remove(),1600)
+ }
+}
+document.getElementById("fireBtn").addEventListener("click",()=>{for(let i=0;i<7;i++)setTimeout(()=>burst(innerWidth*.12+Math.random()*innerWidth*.76,80+Math.random()*innerHeight*.42),i*180);fireSound();caption("A sky full of colour, just for you 🎆")});
+
+// Couple strolls between positions.
+const couple=document.getElementById("couple");let walkStep=0;
+const stops=[50,64,37,50];
+function walk(){couple.classList.add("walking");walkStep=(walkStep+1)%stops.length;couple.style.left=stops[walkStep]+"%";caption(["Walking under the lights together…","Look at those beautiful lanterns!","A little street, a lot of memories.","I could walk here with you forever."][walkStep]);chime();setTimeout(()=>couple.classList.remove("walking"),1050)}
+document.getElementById("startBtn").addEventListener("click",()=>{walk();document.getElementById("panelTitle").textContent="Come, let's explore ✨";document.getElementById("panelText").textContent="Every little light in this street reminds me how lucky I am to have you in my world."});
+
+// Open the centre door and side doors.
+function openDoor(el){el.classList.toggle("open");chime();caption(el.classList.contains("open")?"A warm little home, full of light 🏡":"The door is closed for now")}
+document.getElementById("doorBtn").addEventListener("click",()=>openDoor(document.getElementById("mainDoor")));
+document.querySelectorAll(".house").forEach(h=>h.addEventListener("click",()=>{const d=h.querySelector(".door");openDoor(d);const side=h.dataset.house;document.getElementById("panelTitle").textContent=side==="center"?"Our little home 🏡":"A neighbour's festive home 🪔";document.getElementById("panelText").textContent="Every home has its own lights, stories and little moments of happiness."}));
+
+// Hug animation.
+document.getElementById("hugBtn").addEventListener("click",()=>{couple.classList.add("hug");sparkle();caption("Sending you the warmest hug ❤️");for(let i=0;i<12;i++)setTimeout(floatHeart,i*90);setTimeout(()=>couple.classList.remove("hug"),1800)});
+function floatHeart(){const e=document.createElement("span");e.textContent=["💗","✨","❤️","🌸"][Math.floor(Math.random()*4)];e.style.cssText=`position:fixed;z-index:25;left:${Math.random()*100}vw;bottom:0;font-size:${18+Math.random()*18}px;pointer-events:none;`;document.body.appendChild(e);e.animate([{transform:"translateY(0) scale(.7)",opacity:0},{opacity:1,offset:.15},{transform:`translateY(-${innerHeight*.8}px) rotate(${Math.random()*80-40}deg) scale(1.2)`,opacity:0}],{duration:3200,easing:"ease-out"});setTimeout(()=>e.remove(),3300)}
+
+// Gift opens the hidden letter.
+const gift=document.getElementById("gift"),letter=document.getElementById("letter");
+function openGift(){gift.classList.add("open");letter.classList.add("show");document.getElementById("giftBtn").textContent="Your surprise is open ❤️";document.getElementById("panelTitle").textContent="A little something from my heart";document.getElementById("panelText").textContent="I made this tiny world just to remind you how special you are.";sparkle();caption("A little surprise, made only for you 💌");letter.scrollIntoView({behavior:"smooth",block:"nearest"})}
+gift.addEventListener("click",openGift);gift.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openGift()}});document.getElementById("giftBtn").addEventListener("click",openGift);
+
+function caption(t){document.getElementById("caption").textContent=t}
+</script>
+</body>
+</html>
